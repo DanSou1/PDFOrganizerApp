@@ -48,6 +48,8 @@ CREATE TABLE LOGPROCESS (
     DateProcces DATETIME NOT NULL
 );
 
+
+
 🌐 2. API REST - PDFProcessor (ASP.NET Core)
 Instrucciones para ejecutar:
 Abrir la solución PDFProcessor.sln en Visual Studio.
@@ -67,6 +69,52 @@ Swagger estará disponible en:
 
 Funcionalidades expuestas:
 CRUD para DocKey
+
+--- ---
+
+## 🧪 Iniciar todo desde Visual Studio
+
+Este proyecto contiene tres componentes:
+
+1. **PDFProcessor** – API ASP.NET Core (maneja claves, logs y subida de archivos)
+2. **PDFManager** – Servicio de consola tipo Windows que organiza los PDFs
+3. **Frontend** – Interfaz web HTML, CSS, JS (se abre directamente desde el navegador)
+
+Para facilitar la ejecución de todo el sistema al mismo tiempo desde Visual Studio, se puede configurar el arranque múltiple.
+
+---
+
+### 🧰 Configurar múltiples proyectos de inicio en Visual Studio
+
+1. Abrir la solución en Visual Studio.
+2. En el **Explorador de soluciones**, haz clic derecho sobre la solución (arriba de todo).
+3. Selecciona **"Establecer proyectos de inicio..."**
+4. En la ventana emergente:
+   - Marca: ✅ **"Varios proyectos de inicio"**
+   - Asigna la acción **"Iniciar"** a los siguientes proyectos:
+
+   | Proyecto       | Acción  |
+   |----------------|---------|
+   | PDFProcessor   | Iniciar |
+   | PDFManager     | Iniciar |
+
+5. Clic en **Aceptar**.
+
+---
+
+### 🌐 ¿Y el frontend?
+
+El frontend es puro HTML, por lo tanto:
+
+- Se encuentra en la carpeta `/Frontend` o donde lo hayas ubicado.
+- Para ejecutarlo, solo abre el archivo `index.html` con doble clic o desde el navegador.
+- Si deseas automatizar esto, puedes crear un archivo `.bat` que abra la interfaz:
+
+#### Ejemplo de archivo `AbrirFrontend.bat`
+
+```bat
+start "" "C:\Ruta\Completa\A\Tu\Proyecto\Frontend\index.html"
+
 
 ---Obtener y registrar logs (Logprocess)
 
