@@ -97,29 +97,12 @@ Para facilitar la ejecución de todo el sistema al mismo tiempo desde Visual Stu
    |----------------|---------|
    | PDFProcessor   | Iniciar |
    | PDFManager     | Iniciar |
+   | PDFControl     | Iniciar |
 
 5. Clic en **Aceptar**.
 
 ---
 
-### 🌐 ¿Y el frontend?
-
-El frontend es puro HTML, por lo tanto:
-
-- Se encuentra en la carpeta `/Frontend` o donde lo hayas ubicado.
-- Para ejecutarlo, solo abre el archivo `index.html` con doble clic o desde el navegador.
-- Si deseas automatizar esto, puedes crear un archivo `.bat` que abra la interfaz:
-
-#### Ejemplo de archivo `AbrirFrontend.bat`
-
-```bat
-start "" "C:\Ruta\Completa\A\Tu\Proyecto\Frontend\index.html"
-
-
----Obtener y registrar logs (Logprocess)
-
-Endpoint para subir archivos PDF
-→ Guarda archivos en C:\PruebaEQ para ser procesados
 
 ⚙️ 3. Servicio de procesamiento PDF - PDFManager
 ¿Qué hace?
