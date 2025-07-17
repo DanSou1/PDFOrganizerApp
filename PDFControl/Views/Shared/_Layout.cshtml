@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - PDFControl</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/PDFControl.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <div class="d-flex">
+            <nav class="bg-light border-end" style="min-height: 100vh; width: 220px;">
+                <div class="p-3">
+                    <a class="navbar-brand fw-bold d-block mb-4" href="#allBills">PRUEBA</a>
+                    <ul class="nav nav-pills flex-column">
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Index">CARGAR PDF</a>
+                        </li>
+                        <li class="nav-item mb-2">
+                            <a class="nav-link text-dark" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+            <main class="p-4 w-100">
+                @RenderBody()
+            </main>
+        </div>
+    </header>
+        
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - PDFControl - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

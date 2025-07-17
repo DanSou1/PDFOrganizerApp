@@ -1,0 +1,127 @@
+﻿@model PDFControl.Models.ViewModels.IndexViewModel
+@{
+    ViewData["Title"] = "CARGAR ARCHIVOS";
+}
+
+<div class="container my-5">
+    <div class="row mb-4">
+        <div class="col-md-4">
+            <div class="card shadow">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Subir PDF</h4>
+                </div>
+                <div class="card-body">
+                    <form asp-action="UploadPDFS" asp-controller="UploadPDF" id="uploadForm" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="pdfFile" class="form-label">Seleccione un archivo PDF (máx 10 MB)</label>
+                            <input type="file" name="pdfFile" id="pdfFile" accept=".pdf" class="form-control" required />
+                        </div>
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-success">Subir</button>
+                        </div>
+                    </form>
+                    <div id="result" class="mt-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-8">
+            <div class="card shadow">
+                <div class="card-header bg-secondary text-white text-center">
+                    <h4>Palabras Clave Registradas</h4>
+                </div>
+                <div class="card-body">
+                    @if (Model.dockeysModel != null && Model.dockeysModel.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-hover bg-white">
+                                <thead class="table-light text-center">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Nombre del Documento</th>
+                                        <th>Palabra Clave</th>
+                                    </tr>
+                                </thead>
+                                <tbody class="text-center">
+                                    @foreach (var key in Model.dockeysModel)
+                                    {
+                                        <tr>
+                                            <td>@key.id</td>
+                                            <td>@key.docName</td>
+                                            <td>@key.keyStone</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-center text-muted">No hay palabras clave registradas aún.</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card shadow">
+                <div class="card-header bg-info text-white text-center">
+                    <h4>Agregar Nueva Palabra Clave</h4>
+                </div>
+                <div class="card-body">
+                    <form id="docKeyForm" class="row g-3">
+                        <div class="col-md-6">
+                            <label for="docName" class="form-label">Nombre del Documento</label>
+                            <input type="text" class="form-control" id="docName" name="docName" required maxlength="200">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="keyStone" class="form-label">Palabra Clave</label>
+                            <input type="text" class="form-control" id="keyStone" name="keyStone" required maxlength="200">
+                        </div>
+                        <div class="col-12 d-grid mt-3">
+                            <button type="submit" class="btn btn-primary">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <h2 class="mt-4 mb-3">Palabras Clave Registradas</h2>
+
+    <table class="table table-bordered table-striped">
+        <thead class="table-dark">
+            <tr>
+                <th scope="col">ID</th>
+                <th scope="col">Nombre del Documento</th>
+                <th scope="col">Palabra Clave</th>
+                <th scope="col">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.dockeysModel != null && Model.dockeysModel.Any())
+            {
+                foreach (var key in Model.dockeysModel)
+                {
+                    <tr>
+                        <td>@key.id</td>
+                        <td>@key.docName</td>
+                        <td>@key.keyStone</td>
+                        <td>
+                            <button class="btn btn-sm btn-danger" onclick="deleteDocKey(@key.id)">
+                                Eliminar
+                            </button>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center text-muted">No hay palabras clave registradas.</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<script src="~/js/uploadPDF.js"></script>
+<script src="~/js/deleteDocKey.js"></script>
