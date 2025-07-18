@@ -29,6 +29,31 @@ Este proyecto resuelve una prueba técnica para desarrollador .NET Full Stack Ju
 
 ---
 
+## 🧱 Requisitos para compilar y ejecutar el proyecto
+
+Para poder ejecutar correctamente el proyecto en Visual Studio, asegúrese de tener instalado lo siguiente:
+
+### ✅ Software necesario
+
+| Herramienta              | Versión recomendada        | Descripción                           |
+|--------------------------|----------------------------|---------------------------------------|
+| Visual Studio            | 2022 o superior             | Para abrir y ejecutar la solución     |
+| .NET SDK                 | .NET 8.0                    | Requerido para compilar los proyectos |
+| SQL Server               | 2017 o superior             | Motor de base de datos                |
+| Git                      | (opcional, para clonar)     | Para trabajar desde GitHub            |
+
+> ⚠️ Asegúrate de incluir la carga de trabajo **“Desarrollo de ASP.NET y web”** durante la instalación de Visual Studio.
+
+---
+
+### 📦 Paquetes NuGet utilizados
+
+Los paquetes se restauran automáticamente al compilar. Si no, puedes ejecutarlo manualmente:
+
+```bash
+dotnet restore
+
+
 ## 🛠 1. Configuración de la base de datos
 
 ### Tablas requeridas:
